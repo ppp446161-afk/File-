@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Profile & Roblox Script</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0d0e12;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: #161821;
+            border: 1px solid #2a2d3d;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 450px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #00e676, #00b0ff);
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 15px;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #00e676;
+        }
+
+        .status-dot {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 15px;
+            height: 15px;
+            background-color: #00e676;
+            border-radius: 50%;
+            border: 2px solid #161821;
+        }
+
+        .name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .title {
+            font-size: 0.9rem;
+            color: #00b0ff;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .bio {
+            font-size: 0.85rem;
+            color: #a0a5b5;
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+
+        /* Script Section */
+        .script-box {
+            background-color: #0d0e12;
+            border: 1px solid #2a2d3d;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .script-title {
+            font-size: 0.8rem;
+            color: #00e676;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .script-code {
+            background-color: #12141c;
+            color: #e2e8f0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.75rem;
+            padding: 10px;
+            border-radius: 6px;
+            word-break: break-all;
+            border: 1px solid #1f2230;
+            margin-bottom: 10px;
+            max-height: 80px;
+            overflow-y: auto;
+        }
+
+        .copy-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #00e676, #00b0ff);
+            color: #0d0e12;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .copy-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Social Links */
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #1f2230;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-btn:hover {
+            background-color: #00e676;
+            color: #0d0e12;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <!-- Avatar -->
+        <div class="avatar-container">
+            <img src="https://via.placeholder.com/150" alt="Avatar" class="avatar">
+            <div class="status-dot"></div>
+        </div>
+
+        <!-- Info -->
+        <h1 class="name">Your Name / Developer</h1>
+        <p class="title">Roblox Script Developer</p>
+        <p class="bio">Chuyên phát triển và tối ưu hóa các script Lua chất lượng cao cho Roblox. Nhấn nút bên dưới để lấy Loader Script mới nhất!</p>
+
+        <!-- Script Box Section -->
+        <div class="script-box">
+            <div class="script-title">
+                <i class="fa-solid fa-code"></i> Roblox Lua Loader Script
+            </div>
+            <div class="script-code" id="scriptText">loadstring(game:HttpGet("https://raw.githubusercontent.com/ppp446161-afk/Hun-/refs/heads/main/H%C3%ACnh%20%E1%BA%A3nh"))()</div>
+            <button class="copy-btn" onclick="copyScript()">
+                <i class="fa-regular fa-copy"></i> <span id="btnText">Sao chép Script</span>
+            </button>
+        </div>
+
+        <!-- Social Links -->
+        <div class="socials">
+            <a href="#" class="social-btn" title="Discord"><i class="fa-brands fa-discord"></i></a>
+            <a href="#" class="social-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        </div>
+    </div>
+
+    <script>
+        function copyScript() {
+            const scriptContent = document.getElementById("scriptText").innerText;
+            navigator.clipboard.writeText(scriptContent).then(() => {
+                const btnText = document.getElementById("btnText");
+                btnText.innerText = "Đã sao chép!";
+                setTimeout(() => {
+                    btnText.innerText = "Sao chép Script";
+                }, 2000);
+            }).catch(err => {
+                console.error("Lỗi khi sao chép: ", err);
+            });
+        }
+    </script>
+</body>
+  </html>
+  
